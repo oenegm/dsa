@@ -2,7 +2,6 @@ package org.oenegm;
 
 public class Main {
 
-
     public static void main(String[] args) {
         String problem = """
                     Two Crystal Ball problem:
@@ -29,7 +28,7 @@ public class Main {
 
         i -= jumpAmount;
 
-        for (int j = 0; j < jumpAmount && i < arr.length; ++j, ++i) {
+        for (int j = 0; j < jumpAmount && i < arr.length; j++, i++) {
             if (arr[i]) {
                 return i;
             }
