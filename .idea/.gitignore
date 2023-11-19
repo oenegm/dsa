@@ -6,11 +6,6 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-/encodings.xml
-/sonarlint/issuestore/f/c/fc5649d247c0d5a52c6a5dd28c66abd1f2ed6bb4
-/sonarlint/securityhotspotstore/f/c/fc5649d247c0d5a52c6a5dd28c66abd1f2ed6bb4
-/sonarlint/issuestore/index.pb
-/sonarlint/securityhotspotstore/index.pb
 /jpa-buddy.xml
+/encodings.xml
+/sonarlint/
