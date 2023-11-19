@@ -4,49 +4,37 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("NOT IMPLEMENTED");
+        String problem = """
+                    Two Crystal Ball problem:
+                    Given two crystal balls that will break if dropped from high enough distance, determine the exact spot in which it will break in the most optimized way.
+                    Solution: To understand the problem, let us assume the crystal ball will break if dropped from a height of 8 meters. So, if we drop from true meter, the ball will not break(false).
+                    If dropped from height of 2 meter, again the ball will not break(false). We keep on doing it. When dropped from 8 meters, the ball will break(true).
+                    If we list all falses and trues in an array,
+                    it will look like below: [false, false, false, false, false, false, false, false ,false, false, false, true, true, true, true]
+                    This solution is in O(sqrt(n))
+                """;
+        System.out.print(problem);
     }
 
-    public static boolean binarySearchLoop(int[] arr, int value) {
-        int low = 0;
-        int high = arr.length;
+    public static int twoCrystalBalls(boolean[] arr) {
+        int jumpAmount = (int) Math.sqrt(arr.length);
 
-        do {
-            int middle = low + (high - low) / 2;
-            int current = arr[middle];
+        int i = jumpAmount;
 
-            if (current == value) {
-                return true;
-            } else if (current > value) {
-                high = middle;
-            } else {
-                low = middle + 1;
+        for (; i < arr.length; i += jumpAmount) {
+            if (arr[i]) {
+                break;
             }
-
-        } while (low < high);
-
-        return false;
-    }
-
-    public static boolean binarySearchRecursion(int[] arr, int value) {
-        return binarySearchRecursion(arr, value, 0, arr.length);
-    }
-
-    private static boolean binarySearchRecursion(int[] arr, int value, int low, int high) {
-
-        if (low > high) {
-            return false;
         }
 
-        int middle = low + (high - low) / 2;
-        int current = arr[middle];
+        i -= jumpAmount;
 
-        if (current == value) {
-            return true;
-        } else if (current > value) {
-            return binarySearchRecursion(arr, value, low, middle - 1);
-        } else {
-            return binarySearchRecursion(arr, value, middle + 1, high);
+        for (int j = 0; j < jumpAmount && i < arr.length; ++j, ++i) {
+            if (arr[i]) {
+                return i;
+            }
         }
+        return -1;
     }
+
 }
