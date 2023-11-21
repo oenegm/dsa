@@ -29,17 +29,9 @@ class QueueLinked<T> : Queue<T> {
         return h?.value
     }
 
-    override fun peek(): T? {
-        if (head == null) {
-            return null
-        }
+    override fun peek(): T? = head?.value
 
-        return head?.value
-    }
-
-    override fun length(): Int {
-        return length
-    }
+    override fun length(): Int = length
 
     private class QueueNode<K>(var value: K) {
         var next: QueueNode<K>? = null
