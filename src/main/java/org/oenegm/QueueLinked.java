@@ -15,21 +15,22 @@ public class QueueLinked<T> implements Queue<T> {
     public final void enqueue(T value) {
         QueueNode<T> node = new QueueNode<>();
         node.value = value;
-        this.length++;
 
-        if (this.tail == null) {
+        if (this.length == 0) {
             this.head = node;
             this.tail = node;
+            this.length++;
             return;
         }
 
         this.tail.next = node;
         this.tail = node;
+        this.length++;
     }
 
     @Override
     public T deque() {
-        if (this.head == null) {
+        if (this.length == 0) {
             return null;
         }
         final QueueNode<T> h = this.head;
