@@ -1,47 +1,42 @@
-package org.oenegm;
+package org.oenegm
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
-class QueueLinkedTest {
+internal class QueueLinkedTest {
     @Test
-    void testEnqueueDequeue() {
-        Queue<Integer> queue = new QueueLinked<>();
+    fun testEnqueueDequeue() {
+        val queue: Queue<Int> = QueueLinked()
 
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
+        queue.enqueue(1)
+        queue.enqueue(2)
+        queue.enqueue(3)
 
-        assertEquals(3, queue.length());
+        Assertions.assertEquals(3, queue.length())
+        Assertions.assertEquals(1, queue.deque())
+        Assertions.assertEquals(2, queue.deque())
+        Assertions.assertEquals(1, queue.length())
 
-        assertEquals(Integer.valueOf(1), queue.deque());
-        assertEquals(Integer.valueOf(2), queue.deque());
+        queue.enqueue(4)
+        queue.enqueue(5)
 
-        assertEquals(1, queue.length());
+        Assertions.assertEquals(3, queue.peek())
+        Assertions.assertEquals(3, queue.deque())
+        Assertions.assertEquals(4, queue.deque())
+        Assertions.assertEquals(5, queue.deque())
+        Assertions.assertEquals(0, queue.length())
 
-        queue.enqueue(4);
-        queue.enqueue(5);
-
-        assertEquals(Integer.valueOf(3), queue.peek());
-
-        assertEquals(Integer.valueOf(3), queue.deque());
-        assertEquals(Integer.valueOf(4), queue.deque());
-        assertEquals(Integer.valueOf(5), queue.deque());
-
-        assertEquals(0, queue.length());
-        assertNull(queue.peek());
-        assertNull(queue.deque());
+        Assertions.assertNull(queue.peek())
+        Assertions.assertNull(queue.deque())
     }
 
     @Test
-    void testEmptyQueue() {
-        QueueLinked<String> queue = new QueueLinked<>();
+    fun testEmptyQueue() {
+        val queue = QueueLinked<String>()
 
-        assertEquals(0, queue.length());
+        Assertions.assertEquals(0, queue.length())
 
-        assertNull(queue.peek());
-        assertNull(queue.deque());
+        Assertions.assertNull(queue.peek())
+        Assertions.assertNull(queue.deque())
     }
 }

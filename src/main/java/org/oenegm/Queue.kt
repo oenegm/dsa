@@ -1,11 +1,8 @@
-package org.oenegm;
+package org.oenegm
 
-public interface Queue<T> {
-    void enqueue(T value);
-
-    T deque();
-
-    T peek();
-
-    int length();
+interface Queue<T> {
+    fun enqueue(value: T)
+    fun deque(): T?
+    fun peek(): T?
+    fun length(): Int
 }

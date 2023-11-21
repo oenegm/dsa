@@ -1,64 +1,55 @@
-package org.oenegm;
+package org.oenegm
 
-public class QueueLinked<T> implements Queue<T> {
-    private int length;
-    private QueueNode<T> head;
-    private QueueNode<T> tail;
+class QueueLinked<T> : Queue<T> {
 
-    public QueueLinked() {
-        this.length = 0;
-        this.head = null;
-        this.tail = null;
-    }
+    private var length = 0
+    private var head: QueueNode<T>? = null
+    private var tail: QueueNode<T>? = null
 
-    @Override
-    public final void enqueue(T value) {
-        QueueNode<T> node = new QueueNode<>();
-        node.value = value;
+    override fun enqueue(value: T) {
+        val node = QueueNode(value)
 
-        if (this.length == 0) {
-            this.head = node;
-            this.tail = node;
-            this.length++;
-            return;
+        if (length == 0) {
+            head = node
+            tail = node
+            length++
+            return
         }
 
-        this.tail.next = node;
-        this.tail = node;
-        this.length++;
+        tail!!.next = node
+        tail = node
+        length++
     }
 
-    @Override
-    public T deque() {
-        if (this.length == 0) {
-            return null;
+    override fun deque(): T? {
+        if (length == 0) {
+            return null
         }
-        final QueueNode<T> h = this.head;
-        this.head = this.head.next;
+        val h = head
 
-        this.length--;
-        if (this.length == 0) {
-            this.tail = null;
+        head = head?.next
+
+        length--
+        if (length == 0) {
+            tail = null
         }
 
-        return h.value;
+        return h!!.value
     }
 
-    @Override
-    public T peek() {
-        if (this.head == null) {
-            return null;
+    override fun peek(): T? {
+        if (head == null) {
+            return null
         }
-        return this.head.value;
+
+        return head?.value
     }
 
-    @Override
-    public int length() {
-        return length;
+    override fun length(): Int {
+        return length
     }
 
-    private static class QueueNode<K> {
-        K value;
-        QueueNode<K> next;
+    private class QueueNode<K>(var value: K) {
+        var next: QueueNode<K>? = null
     }
 }
