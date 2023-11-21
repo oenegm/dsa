@@ -26,9 +26,7 @@ class StackLinked<T> : Stack<T> {
         return h?.value
     }
 
-    override fun peek(): T? {
-        return head?.value
-    }
+    override fun peek(): T? = head?.value
 
     override fun length(): Int = length
 
