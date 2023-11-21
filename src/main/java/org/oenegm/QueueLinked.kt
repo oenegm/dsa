@@ -22,19 +22,11 @@ class QueueLinked<T> : Queue<T> {
     }
 
     override fun deque(): T? {
-        if (length == 0) {
-            return null
-        }
         val h = head
-
         head = head?.next
+        length = 0.coerceAtLeast(length - 1)
 
-        length--
-        if (length == 0) {
-            tail = null
-        }
-
-        return h!!.value
+        return h?.value
     }
 
     override fun peek(): T? {
