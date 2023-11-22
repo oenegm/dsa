@@ -9,16 +9,14 @@ class QueueLinked<T> : Queue<T> {
     override fun enqueue(value: T) {
         val node = QueueNode(value)
 
-        if (length == 0) {
+        if (length++ == 0) {
             head = node
             tail = node
-            length++
             return
         }
 
         tail!!.next = node
         tail = node
-        length++
     }
 
     override fun deque(): T? {
