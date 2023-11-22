@@ -30,7 +30,6 @@ object MazeSolver {
         // 2. on a wall
         if (maze[curr.y][curr.x] == wall) return false
 
-
         // 3. at the end
         if (curr.x == end.x && curr.y == end.y) {
             path.add(end)
