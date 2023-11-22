@@ -7,15 +7,13 @@ class StackLinked<T> : Stack<T> {
     override fun push(value: T) {
         val node = StackNode(value)
 
-        if (length == 0) {
+        if (length++ == 0) {
             head = node
-            length++
             return
         }
 
         node.prev = head
         head = node
-        length++
     }
 
     override fun pop(): T? {
