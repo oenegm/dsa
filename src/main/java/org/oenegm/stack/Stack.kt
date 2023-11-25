@@ -1,8 +1,8 @@
 package org.oenegm.stack
 
 interface Stack<T> {
-    fun push(value: T)
+    fun push(item: T)
     fun pop(): T?
     fun peek(): T?
-    fun length(): Int
+    fun getLength(): Int
 }

@@ -1,8 +1,9 @@
 package org.oenegm.search
 
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
 import org.oenegm.search.Searcher.binarySearchLoop
 import org.oenegm.search.Searcher.binarySearchRecursion
 import org.oenegm.search.Searcher.linearSearch

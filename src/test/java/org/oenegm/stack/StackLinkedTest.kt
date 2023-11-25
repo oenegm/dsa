@@ -1,8 +1,10 @@
 package org.oenegm.stack
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+
+import org.junit.Test
+
 
 class StackLinkedTest {
 
@@ -14,10 +16,10 @@ class StackLinkedTest {
         stack.push(2)
         stack.push(3)
 
-        assertEquals(3, stack.length())
+        assertEquals(3, stack.getLength())
         assertEquals(3, stack.pop())
         assertEquals(2, stack.pop())
-        assertEquals(1, stack.length())
+        assertEquals(1, stack.getLength())
 
         stack.push(4)
         stack.push(5)
@@ -26,7 +28,7 @@ class StackLinkedTest {
         assertEquals(5, stack.pop())
         assertEquals(4, stack.pop())
         assertEquals(1, stack.pop())
-        assertEquals(0, stack.length())
+        assertEquals(0, stack.getLength())
 
         assertNull(stack.peek())
         assertNull(stack.pop())
@@ -36,7 +38,7 @@ class StackLinkedTest {
     fun testEmptyStack() {
         val stack = StackLinked<String>()
 
-        assertEquals(0, stack.length())
+        assertEquals(0, stack.getLength())
 
         assertNull(stack.peek())
         assertNull(stack.pop())

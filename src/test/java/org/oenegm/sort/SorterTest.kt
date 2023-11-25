@@ -1,11 +1,12 @@
 package org.oenegm.sort
 
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import org.junit.Assert.assertArrayEquals
+import org.junit.Test
+
 import org.oenegm.sort.Sorter.bubbleSort
 import org.oenegm.sort.Sorter.quickSort
 
-class SorterTest{
+class SorterTest {
 
     @Test
     fun testBubbleSort() {

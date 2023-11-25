@@ -4,8 +4,8 @@ class StackLinked<T> : Stack<T> {
     private var length = 0
     private var head: StackNode<T>? = null
 
-    override fun push(value: T) {
-        val node = StackNode(value)
+    override fun push(item: T) {
+        val node = StackNode(item)
 
         if (length++ == 0) {
             head = node
@@ -26,7 +26,7 @@ class StackLinked<T> : Stack<T> {
 
     override fun peek(): T? = head?.value
 
-    override fun length(): Int = length
+    override fun getLength(): Int = length
 
     private class StackNode<K>(var value: K) {
         var prev: StackNode<K>? = null
