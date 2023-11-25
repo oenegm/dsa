@@ -1,8 +1,8 @@
-package org.oenegm
+package org.oenegm.recursion
 
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 class MazeSolverTest {
 
@@ -62,5 +62,5 @@ class MazeSolverTest {
         val solution = MazeSolver.solve(maze, '#', start, end)
         assertTrue(solution.isNotEmpty())
         assertEquals(end, solution.last())
-    } 
+    }
 }

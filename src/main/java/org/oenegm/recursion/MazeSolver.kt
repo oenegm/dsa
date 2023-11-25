@@ -1,4 +1,4 @@
-package org.oenegm
+package org.oenegm.recursion
 
 object MazeSolver {
     // uses depth first search strategy
