@@ -2,9 +2,9 @@ package org.oenegm.list
 
 class DoublyLinkedList<T> : List<T> {
 
-    override fun getLength(): Int {
-        TODO("Not yet implemented")
-    }
+    private var length: Int = 0
+
+    override fun getLength(): Int = length
 
     override fun removeAt(index: Int): T? {
         TODO("Not yet implemented")
