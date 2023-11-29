@@ -8,96 +8,96 @@ import org.junit.Test
 
 class DoublyLinkedListTest {
 
-    private lateinit var doublyLinkedList: DoublyLinkedList<String>
+    private lateinit var list: List<String>
 
     @Before
     fun setUp() {
-        doublyLinkedList = DoublyLinkedList()
+        list = DoublyLinkedList()
     }
 
     @Test
     fun testEmptyList() {
-        assertEquals(0, doublyLinkedList.getLength())
-        assertNull(doublyLinkedList.get(0))
-        assertNull(doublyLinkedList.removeAt(0))
-        assertNull(doublyLinkedList.remove("A"))
+        assertEquals(0, list.getLength())
+        assertNull(list.get(0))
+        assertNull(list.removeAt(0))
+        assertNull(list.remove("A"))
     }
 
     @Test
     fun testAppendAndGet() {
-        doublyLinkedList.append("A")
-        doublyLinkedList.append("B")
-        doublyLinkedList.append("C")
+        list.append("A")
+        list.append("B")
+        list.append("C")
 
-        assertEquals(3, doublyLinkedList.getLength())
+        assertEquals(3, list.getLength())
 
-        assertEquals("A", doublyLinkedList.get(0))
-        assertEquals("B", doublyLinkedList.get(1))
-        assertEquals("C", doublyLinkedList.get(2))
+        assertEquals("A", list.get(0))
+        assertEquals("B", list.get(1))
+        assertEquals("C", list.get(2))
     }
 
     @Test
     fun testPrependAndRemove() {
-        doublyLinkedList.prepend("A")
-        doublyLinkedList.prepend("B")
-        doublyLinkedList.prepend("C")
+        list.prepend("A")
+        list.prepend("B")
+        list.prepend("C")
 
-        assertEquals(3, doublyLinkedList.getLength())
+        assertEquals(3, list.getLength())
 
-        assertEquals("C", doublyLinkedList.get(0))
-        assertEquals("B", doublyLinkedList.get(1))
-        assertEquals("A", doublyLinkedList.get(2))
+        assertEquals("C", list.get(0))
+        assertEquals("B", list.get(1))
+        assertEquals("A", list.get(2))
 
-        assertEquals("B", doublyLinkedList.removeAt(1))
+        assertEquals("B", list.removeAt(1))
 
-        assertEquals(2, doublyLinkedList.getLength())
+        assertEquals(2, list.getLength())
 
-        assertEquals("C", doublyLinkedList.get(0))
-        assertEquals("A", doublyLinkedList.get(1))
+        assertEquals("C", list.get(0))
+        assertEquals("A", list.get(1))
     }
 
     @Test
     fun testInsertAtAndRemoveItem() {
-        doublyLinkedList.append("A")
-        doublyLinkedList.append("C")
+        list.append("A")
+        list.append("C")
 
-        doublyLinkedList.insertAt("B", 1)
+        list.insertAt("B", 1)
 
-        assertEquals(3, doublyLinkedList.getLength())
+        assertEquals(3, list.getLength())
 
-        assertEquals("A", doublyLinkedList.get(0))
-        assertEquals("B", doublyLinkedList.get(1))
-        assertEquals("C", doublyLinkedList.get(2))
+        assertEquals("A", list.get(0))
+        assertEquals("B", list.get(1))
+        assertEquals("C", list.get(2))
 
-        assertEquals("B", doublyLinkedList.remove("B"))
+        assertEquals("B", list.remove("B"))
 
-        assertEquals(2, doublyLinkedList.getLength())
+        assertEquals(2, list.getLength())
 
-        assertEquals("A", doublyLinkedList.get(0))
-        assertEquals("C", doublyLinkedList.get(1))
+        assertEquals("A", list.get(0))
+        assertEquals("C", list.get(1))
     }
 
     @Test
     fun testRemoveNonexistentItem() {
-        doublyLinkedList.append("A")
-        doublyLinkedList.append("B")
-        doublyLinkedList.append("C")
+        list.append("A")
+        list.append("B")
+        list.append("C")
 
-        assertNull(doublyLinkedList.remove("D"))
+        assertNull(list.remove("D"))
 
-        assertEquals(3, doublyLinkedList.getLength())
+        assertEquals(3, list.getLength())
 
-        assertEquals("A", doublyLinkedList.get(0))
-        assertEquals("B", doublyLinkedList.get(1))
-        assertEquals("C", doublyLinkedList.get(2))
+        assertEquals("A", list.get(0))
+        assertEquals("B", list.get(1))
+        assertEquals("C", list.get(2))
     }
 
     @Test
     fun testRemoveLastItem() {
-        doublyLinkedList.append("A")
-        assertEquals("A", doublyLinkedList.removeAt(0))
-        assertEquals(0, doublyLinkedList.getLength())
-        assertNull(doublyLinkedList.get(0))
+        list.append("A")
+        assertEquals("A", list.removeAt(0))
+        assertEquals(0, list.getLength())
+        assertNull(list.get(0))
     }
 
 //    @Test
