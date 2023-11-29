@@ -3,11 +3,12 @@ package org.oenegm.queue
 class QueueLinked<T> : Queue<T> {
 
     private var length = 0
-    private var head: QueueNode<T>? = null
-    private var tail: QueueNode<T>? = null
+    private var head: Node<T>? = null
+    private var tail: Node<T>? = null
 
     override fun enqueue(item: T) {
-        val node = QueueNode(item)
+
+        val node: Node<T> = Node(item)
 
         if (length++ == 0) {
             head = node
@@ -20,6 +21,7 @@ class QueueLinked<T> : Queue<T> {
     }
 
     override fun deque(): T? {
+
         val h = head
         head = head?.next
         length = 0.coerceAtLeast(length - 1)
@@ -31,7 +33,7 @@ class QueueLinked<T> : Queue<T> {
 
     override fun getLength(): Int = length
 
-    private class QueueNode<K>(var value: K) {
-        var next: QueueNode<K>? = null
+    private class Node<K>(var value: K) {
+        var next: Node<K>? = null
     }
 }

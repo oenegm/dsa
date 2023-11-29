@@ -2,10 +2,11 @@ package org.oenegm.stack
 
 class StackLinked<T> : Stack<T> {
     private var length = 0
-    private var head: StackNode<T>? = null
+    private var head: Node<T>? = null
 
     override fun push(item: T) {
-        val node = StackNode(item)
+
+        val node: Node<T> = Node(item)
 
         if (length++ == 0) {
             head = node
@@ -17,6 +18,7 @@ class StackLinked<T> : Stack<T> {
     }
 
     override fun pop(): T? {
+
         val h = head
         head = head?.prev
         length = 0.coerceAtLeast(length - 1)
@@ -28,7 +30,7 @@ class StackLinked<T> : Stack<T> {
 
     override fun getLength(): Int = length
 
-    private class StackNode<K>(var value: K) {
-        var prev: StackNode<K>? = null
+    private class Node<K>(var value: K) {
+        var prev: Node<K>? = null
     }
 }
