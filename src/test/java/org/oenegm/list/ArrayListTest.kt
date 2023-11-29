@@ -3,6 +3,7 @@ package org.oenegm.list
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import org.junit.jupiter.api.assertThrows
 
 class ArrayListTest {
 
@@ -98,15 +99,15 @@ class ArrayListTest {
         Assert.assertNull(list.get(0))
     }
 
-//    @Test
-//    fun testInsertAtInvalidIndex() {
-//        doublyLinkedList.append("A")
-//        val index = 2
-//
-//        val exception = assertThrows<IndexOutOfBoundsException> {
-//            doublyLinkedList.insertAt("B", index)
-//        }
-//
-//        assertEquals("Index $index out of bounds", exception.message)
-//    }
+    @Test
+    fun testInsertAtInvalidIndex() {
+        list.append("A")
+        val index = 2
+
+        val exception = assertThrows<IndexOutOfBoundsException> {
+            list.insertAt("B", index)
+        }
+
+        Assert.assertEquals("Index out of range: $index", exception.message)
+    }
 }
